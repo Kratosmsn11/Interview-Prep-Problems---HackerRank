@@ -3,25 +3,21 @@ import java.util.Collections;
 import java.util.Scanner;
 
 public class lonelyInteger {
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
-        ArrayList<Integer> a = new ArrayList<>();
-
+        ArrayList<Integer> a = new ArrayList();
         int n = sc.nextInt();
-        for (int i = 0; i <n ; i++) {
+
+        for(int i = 0; i < n; ++i) {
             a.add(sc.nextInt());
         }
 
-        int i = 0, result=-1;
-        Collections.sort(a);
-        while(result < 0){
-            if(a.get(i) == 1 && a.size() == 1) {
-                result = 1;
-                break;
-            } else if(a.get(i) == a.get(i+1)) i += 2;
-            else result = a.get(i);
+        int result = 0;
+        for (int i = 0; i < a.size(); i++) {
+            result ^= a.get(i);             // using bit operator xor will result in just the element that has
         }
+
         System.out.println(result);
     }
 }
